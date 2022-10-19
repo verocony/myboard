@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { createData, updateData } from "../redux/modules/postSlice";
+import { updateData } from "../redux/modules/postSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+import { __updatePost } from "../redux/modules/postSlice";
 
 const Update = () => {
   const paramID = useParams();
   const navigate = useNavigate();
 
-  const postUser = useSelector((state) => state.post.user);
+  const postUser = useSelector((state) => state.post.post);
 
   useEffect(() => {}, [postUser]);
   const indexId = postUser.findIndex((user) => {
@@ -35,23 +37,10 @@ const Update = () => {
     setInput({ ...input, [name]: value });
   };
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    if (
-      input.writer.trim() === "" ||
-      input.title.trim() === "" ||
-      input.body.trim() === ""
-    )
-      return alert("모두 입력 해주세요");
-    const insertID = { ...input, id: inputId };
-    dispatch(createData(insertID));
-    setInput(postUser[indexId]);
-  };
-
   const onUpdateHandler = (e) => {
     e.preventDefault();
     const insertID = { ...input, id: paramID.id };
-    dispatch(updateData(insertID));
+    dispatch(__updatePost(insertID));
   };
 
   const onResetHandler = (e) => {

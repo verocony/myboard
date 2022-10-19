@@ -2,23 +2,21 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteData } from "../redux/modules/postSlice";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { __getPosts, __deletePost } from "../redux/modules/postSlice";
 
 const List = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const postUser = useSelector((state) => state.post.user);
-  // const x = useSelector((state) => state.post.comment);
-
-  // console.log(x);
-  useEffect(() => {
-    // console.log("user", postUser);
-    // console.log("comment", x);
-  }, [postUser]);
+  const listPost = useSelector((state) => state.post.post);
 
   const onDeleteHanlder = (Id) => {
-    dispatch(deleteData(Id));
+    dispatch(__deletePost(Id));
   };
+
+  //리스트업
+  useEffect(() => {
+    dispatch(__getPosts());
+  }, [dispatch]);
 
   return (
     <div>
@@ -32,7 +30,7 @@ const List = () => {
       <div>PracList</div>
 
       <div className="list-wrapper">
-        {postUser.map((value, index) => {
+        {listPost.map((value, index) => {
           // console.log(value);
           return (
             <div key={index} className="todo-container">

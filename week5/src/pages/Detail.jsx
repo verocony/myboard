@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   deleteCommentData,
@@ -7,10 +7,16 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import {
+  __addComment,
+  __deleteComment,
+  __getComments,
+} from "../redux/modules/postSlice";
+
 const Detail = () => {
   const navigate = useNavigate();
   const paramID = useParams();
-  const postUser = useSelector((state) => state.post.user);
+  const postUser = useSelector((state) => state.post.post);
   const commentList = useSelector((state) => state.post.comment);
   const indexId = postUser.findIndex((user) => {
     if (user.id == paramID.id) {
@@ -42,19 +48,26 @@ const Detail = () => {
     if (input.writer.trim() === "" || input.comment.trim() === "")
       return alert("모두 입력 해주세요");
     const insertID = { ...input, id: inputId, userId: paramID.id };
-    dispatch(createCommentData(insertID));
+    dispatch(__addComment(insertID));
     setInput(initialState);
   };
 
   const onResetHandler = (e) => {
     e.preventDefault();
     setInput(initialState);
+    console.log(postUser);
     console.log(commentList);
   };
 
   const onDeleteHanlder = (Id) => {
-    dispatch(deleteCommentData(Id));
+    dispatch(__deleteComment(Id));
   };
+
+  //Comment ListUp
+  useEffect(() => {
+    dispatch(__getComments());
+  }, [dispatch]);
+
   return (
     <div>
       <button

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createData } from "../redux/modules/postSlice";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { __addPost } from "../redux/modules/postSlice";
 
 const Form = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const Form = () => {
     )
       return alert("모두 입력 해주세요");
     const insertID = { ...input, id: inputId };
-    dispatch(createData(insertID));
+    dispatch(__addPost(insertID));
     setInput(initialState);
   };
 
