@@ -1,0 +1,36 @@
+{
+  "post": [
+    {
+      "id": 1,
+      "title": "리액트 공부하기",
+      "body": "해도해도 끝이 없다...",
+      "isDone": false,
+      "writer": "kim"
+    },
+    {
+      "id": 2,
+      "title": "진짜로?!",
+      "body": "아닐껄?",
+      "isDone": true,
+      "writer": "공부끝!"
+    }
+  ],
+  "comment": [
+    {
+      "id": 0.5740607183335305,
+      "writer": "kim",
+      "title": "",
+      "body": "",
+      "comment": "ㅡㅡ",
+      "userId": "2"
+    },
+    {
+      "id": 0.5969116090096487,
+      "writer": "park",
+      "title": "",
+      "body": "",
+      "comment": "ㅋㅋㅋㅋ",
+      "userId": "2"
+    }
+  ]
+}
