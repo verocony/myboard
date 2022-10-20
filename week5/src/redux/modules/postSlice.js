@@ -2,20 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  post: [
-    {
-      id: 1,
-      title: "리액트 공부하기",
-      body: "해도해도 끝이 없다...",
-      isDone: false,
-    },
-    {
-      id: 2,
-      title: "진짜로?!",
-      body: "아닐껄?",
-      isDone: true,
-    },
-  ],
+  post: [],
   comment: [],
   isLoading: false,
   error: null,
@@ -25,7 +12,9 @@ export const __getPosts = createAsyncThunk(
   "getPosts",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.get("http://localhost:3001/post");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_JSON_SERVER}/post`
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -37,7 +26,9 @@ export const __getComments = createAsyncThunk(
   "getComments",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.get("http://localhost:3001/comment");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_JSON_SERVER}/comment`
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -49,7 +40,10 @@ export const __addPost = createAsyncThunk(
   "addPost",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.post("http://localhost:3001/post", payload);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_JSON_SERVER}/post`,
+        payload
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -62,7 +56,7 @@ export const __addComment = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/comment",
+        `${process.env.REACT_APP_JSON_SERVER}/comment`,
         payload
       );
       return thunkAPI.fulfillWithValue(data);
@@ -76,8 +70,8 @@ export const __deletePost = createAsyncThunk(
   "deletePost",
   async (payload, thunkAPI) => {
     try {
-     await axios.delete(
-        `http://localhost:3001/post/${payload}`
+      await axios.delete(
+        `${process.env.REACT_APP_JSON_SERVER}/post/${payload}`
       );
       return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
@@ -91,7 +85,7 @@ export const __deleteComment = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       await axios.delete(
-        `http://localhost:3001/comment/${payload}`
+        `${process.env.REACT_APP_JSON_SERVER}/comment/${payload}`
       );
       return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
@@ -105,7 +99,7 @@ export const __updatePost = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { data } = await axios.patch(
-        `http://localhost:3001/post/${payload.id}`,
+        `${process.env.REACT_APP_JSON_SERVER}/${payload.id}`,
         { ...payload }
       );
       return thunkAPI.fulfillWithValue(data);
