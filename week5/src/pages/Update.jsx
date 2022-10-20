@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { __updatePost } from "../redux/modules/postSlice";
+import Button from "../elements/button";
 
 const Update = () => {
   const paramID = useParams();
@@ -49,13 +50,25 @@ const Update = () => {
   };
   return (
     <div>
-      <button
+      {/* <button
         onClick={() => {
           navigate("/");
         }}
       >
         홈 버튼
-      </button>
+      </button> */}
+      <Button
+          _onClick={()=> {
+            navigate("/")}}
+          margin="0 0 10px"
+          width="45px"
+          height="45px"
+          bg="#fbfbfb"
+          color="#ff6f61"
+          border="1px solid #e7e7e7"
+        >
+          Home
+        </Button>
       <div>PracUpdate</div>
 
       <div className="list-container">
@@ -95,21 +108,52 @@ const Update = () => {
             onChange={onChangeHandlerInput}
           ></input>
         </div>
-        <button className="add-button" onClick={onUpdateHandler}>
+        {/* <button className="add-button" onClick={onUpdateHandler}>
           수정하기
-        </button>
-        <button className="add-button" onClick={onResetHandler}>
+        </button> */}
+         <Button
+         className="add-button"
+          width="100px"
+          height="45px"
+          bold="false"
+          _onClick={onUpdateHandler}
+        >
+          수정하기
+        </Button>
+        {/* <button className="add-button" onClick={onResetHandler}>
           Reset
-        </button>
+        </button> */}
+         <Button
+          _onClick={onResetHandler}
+          margin="0 0 10px"
+          width="100px"
+          height="45px"
+          bg="#fbfbfb"
+          color="#ff6f61"
+          border="1px solid #e7e7e7"
+          className="add-button"
+        >
+          Reset
+        </Button>
       </div>
 
-      <button
+      {/* <button
         onClick={() => {
           navigate("/List");
         }}
       >
         리스트 페이지로
-      </button>
+      </button> */}
+       <Button
+          width="100px"
+          height="45px"
+          bold="false"
+          _onClick={()=> {
+            navigate("/List");
+           }}
+        >
+          리스트 보기
+        </Button>
     </div>
   );
 };

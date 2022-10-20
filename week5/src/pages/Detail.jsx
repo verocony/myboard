@@ -12,6 +12,7 @@ import {
   __deleteComment,
   __getComments,
 } from "../redux/modules/postSlice";
+import Button from "../elements/button";
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -70,13 +71,25 @@ const Detail = () => {
 
   return (
     <div>
-      <button
+      {/* <button
         onClick={() => {
           navigate("/");
         }}
       >
         홈 버튼
-      </button>
+      </button> */}
+       <Button
+          _onClick={()=> {
+            navigate("/")}}
+          margin="0 0 10px"
+          width="45px"
+          height="45px"
+          bg="#fbfbfb"
+          color="#ff6f61"
+          border="1px solid #e7e7e7"
+        >
+          Home
+        </Button>
       <div>PracDetail</div>
       <div className="list-container">
         <h2>작성자 : {postUser[indexId].writer}</h2>
@@ -87,20 +100,40 @@ const Detail = () => {
         </div>
         <div> {postUser[indexId].body} </div>
       </div>
-      <button
+      {/* <button
         onClick={() => {
           navigate(`/Update/${paramID.id}`);
         }}
       >
         수정하기
-      </button>
-      <button
+      </button> */}
+      <Button
+          width="100px"
+          height="45px"
+          bold="false"
+          _onClick={() => {
+            navigate(`/Update/${paramID.id}`);
+          }}
+        >
+          수정하기
+        </Button>
+      {/* <button
         onClick={() => {
           navigate("/List");
         }}
       >
         리스트 페이지로
-      </button>
+      </button> */}
+      <Button
+          width="100px"
+          height="45px"
+          bold="false"
+          _onClick={()=> {
+            navigate("/List");
+           }}
+        >
+          리스트 보기
+        </Button>
       <div>Comment</div>
       <div className="add-form">
         <div className="input-group">
@@ -122,12 +155,37 @@ const Detail = () => {
             onChange={onChangeHandlerInput}
           ></input>
         </div>
-        <button className="add-button" onClick={onCommentSubmitHandler}>
+        {/* <button className="add-button" onClick={onCommentSubmitHandler}>
           댓글 추가하기
-        </button>
-        <button className="add-button" onClick={onResetHandler}>
+        </button> */}
+        <Button
+          _onClick={onCommentSubmitHandler}
+          margin="0 0 10px"
+          width="100px"
+          height="45px"
+          bg="#fbfbfb"
+          color="#ff6f61"
+          border="1px solid #e7e7e7"
+          className="add-button"
+        >
+          댓글 추가하기
+        </Button>
+        {/* <button className="add-button" onClick={onResetHandler}>
           Reset
-        </button>
+        </button> */}
+        <Button
+          _onClick={onResetHandler}
+          margin="0 0 10px"
+          width="100px"
+          height="45px"
+          bg="#fbfbfb"
+          color="#ff6f61"
+          border="1px solid #e7e7e7"
+          className="add-button"
+        >
+          Reset
+        </Button>
+        
       </div>
 
       <div className="list-wrapper">

@@ -1,20 +1,5 @@
 {
-  "post": [
-    {
-      "id": 1,
-      "title": "리액트 공부하기",
-      "body": "해도해도 끝이 없다...",
-      "isDone": false,
-      "writer": "kim"
-    },
-    {
-      "id": 2,
-      "title": "진짜로?!",
-      "body": "아닐껄?",
-      "isDone": true,
-      "writer": "공부끝!"
-    }
-  ],
+  "post": [],
   "comment": [
     {
       "id": 0.5740607183335305,
@@ -31,6 +16,14 @@
       "body": "",
       "comment": "ㅋㅋㅋㅋ",
       "userId": "2"
+    },
+    {
+      "id": 0.21709486070501072,
+      "writer": "ㅋㅋㅋ",
+      "title": "",
+      "body": "",
+      "comment": "ㅋㅋㅋ",
+      "userId": "1"
     }
   ]
 }
