@@ -1,5 +1,20 @@
 {
-  "post": [],
+  "post": [
+    {
+      "id": 1,
+      "writer": "Lee",
+      "title": "리액트 공부하기",
+      "body": "공부끝!!!",
+      "isDone": false
+    },
+    {
+      "id": 2,
+      "writer": "Lim",
+      "title": "진짜로?!",
+      "body": "아닐껄?",
+      "isDone": true
+    }
+  ],
   "comment": [
     {
       "id": 0.5740607183335305,
