@@ -76,10 +76,10 @@ export const __deletePost = createAsyncThunk(
   "deletePost",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.delete(
+     await axios.delete(
         `http://localhost:3001/post/${payload}`
       );
-      return thunkAPI.fulfillWithValue(data);
+      return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -90,10 +90,10 @@ export const __deleteComment = createAsyncThunk(
   "deleteComment",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.delete(
+      await axios.delete(
         `http://localhost:3001/comment/${payload}`
       );
-      return thunkAPI.fulfillWithValue(data);
+      return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -173,7 +173,7 @@ const postSlice = createSlice({
     [__deletePost.fulfilled]: (state, action) => {
       state.isLoading = false;
       const indexId = state.post.findIndex((post) => {
-        if (post.id === action.payload) {
+        if (post.id == action.payload) {
           return true;
         }
         return false;

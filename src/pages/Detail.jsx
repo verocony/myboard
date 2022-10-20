@@ -6,12 +6,16 @@ import {
 } from "../redux/modules/postSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 import {
   __addComment,
   __deleteComment,
   __getComments,
 } from "../redux/modules/postSlice";
+import styled from "styled-components";
+import './Detail.css'
+import Header from "../components/Header";
+import Layout from "../components/Layout";
+import Button from "../elements/button";
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -69,65 +73,93 @@ const Detail = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        홈 버튼
-      </button>
-      <div>PracDetail</div>
-      <div className="list-container">
-        <h2>작성자 : {postUser[indexId].writer}</h2>
+    <Layout>
 
-        <div className="list-wrapper"></div>
+      <div className="list-container">
+        <h>작성자 : {postUser[indexId].writer}</h>
+
+        {/* <div className="list-wrapper"></div> */}
         <div className="button-set">
           <h2> {postUser[indexId].title} </h2>
         </div>
         <div> {postUser[indexId].body} </div>
       </div>
-      <button
-        onClick={() => {
-          navigate(`/Update/${paramID.id}`);
-        }}
-      >
-        수정하기
-      </button>
-      <button
-        onClick={() => {
-          navigate("/List");
-        }}
-      >
-        리스트 페이지로
-      </button>
-      <div>Comment</div>
+      {/* list-container */}
+      <Btns>
+      <Button
+          width="100%"
+          height="50px"
+          bold="false"
+          margin="10px 20px 20px 20px"
+          _onClick={() => {
+            navigate(`/Update/${paramID.id}`);
+          }}
+        >
+          수정하기
+        </Button>
+      <Button
+          width="100%"
+          height="50px"
+          bold="false"
+          margin="10px 20px 20px 10px"
+          _onClick={()=> {
+            navigate("/List");
+           }}
+        >
+          리스트 보기
+        </Button>
+        </Btns>
+        {/* Btns */}
+
+
+      <h3>Comment</h3>
       <div className="add-form">
         <div className="input-group">
-          <label className="input-Text">작성자</label>
+          {/* <label className="input-Text">작성자</label> */}
           <input
             type="text"
             name="writer"
-            className="input"
+            className="input_name"
             value={input.writer || ""}
+            placeholder="작성자"
             onChange={onChangeHandlerInput}
           ></input>
 
-          <label className="input-Text">내용</label>
+          {/* <label className="input-Text">내용</label> */}
           <input
             type="text"
             name="comment"
             value={input.comment || ""}
-            className="input"
+            className="input_cont"
+            placeholder="내용"
             onChange={onChangeHandlerInput}
           ></input>
         </div>
-        <button className="add-button" onClick={onCommentSubmitHandler}>
+        <Button
+          _onClick={onCommentSubmitHandler}
+          margin="10px"
+          width="100px"
+          height="45px"
+          bg="#fbfbfb"
+          color="#ff6f61"
+          border="1px solid #e7e7e7"
+          className="add-button"
+        >
           댓글 추가하기
-        </button>
-        <button className="add-button" onClick={onResetHandler}>
+        </Button>
+        <Button
+          _onClick={onResetHandler}
+          margin="10px"
+          width="100px"
+          height="45px"
+          bg="#fbfbfb"
+          color="#ff6f61"
+          border="1px solid #e7e7e7"
+          className="add-button"
+        >
           Reset
-        </button>
+        </Button>
+        
       </div>
 
       <div className="list-wrapper">
@@ -153,8 +185,14 @@ const Detail = () => {
           }
         })}
       </div>
-    </div>
+      </Layout>
+
   );
 };
 
 export default Detail;
+
+
+const Btns = styled.div`
+  display: flex;
+`

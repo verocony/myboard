@@ -1,0 +1,27 @@
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap');
+
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.list-wrapper {
+    display: flex;
+    padding: 10px;
+}
+
+.todo-container {
+    /* border: 1px solid #ccc; */
+    width: 250px;
+    height: 240px;
+    margin: 10px;
+    padding: 0 20px ;
+    flex: 1;
+    border-radius: 20px;
+    background-color: #f8f8f8;
+}
