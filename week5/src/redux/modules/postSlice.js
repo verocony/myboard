@@ -40,11 +40,8 @@ export const __addPost = createAsyncThunk(
   "addPost",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_JSON_SERVER}/post`,
-        payload
-      );
-      return thunkAPI.fulfillWithValue(data);
+      await axios.post(`${process.env.REACT_APP_JSON_SERVER}/post`, payload);
+      return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -55,11 +52,8 @@ export const __addComment = createAsyncThunk(
   "addComment",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_JSON_SERVER}/comment`,
-        payload
-      );
-      return thunkAPI.fulfillWithValue(data);
+      await axios.post(`${process.env.REACT_APP_JSON_SERVER}/comment`, payload);
+      return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -112,7 +106,7 @@ export const __updatePost = createAsyncThunk(
 const postSlice = createSlice({
   name: "post",
   initialState,
-
+  reducers: {},
   extraReducers: {
     //__getPosts
     [__getPosts.pending]: (state) => {

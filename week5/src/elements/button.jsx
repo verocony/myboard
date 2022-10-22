@@ -11,9 +11,8 @@
 // props로 받아오는 요소
 // label => span 태그로 버튼 내부의 글
 // styleClass => 적용될 className
-// disabled => true/ false로 활성화/ 비활성화 
+// disabled => true/ false로 활성화/ 비활성화
 // onClick => onClick 시 이벤트 대응
- 
 
 // import React from "react";
 // import styled, { css } from "styled-components";
@@ -49,14 +48,14 @@ const Button = (props) => {
   } = props;
 
   const styles = {
-    border:border,
+    border: border,
     bold: bold,
     margin: margin,
     width: width,
     padding: padding,
     bg: bg,
     color: color,
-    height:height,
+    height: height,
   };
 
   if (is_float) {
@@ -94,7 +93,7 @@ Button.defaultProps = {
 };
 
 const ElButton = styled.button`
-  border:  ${(props) => props.border};
+  border: ${(props) => props.border};
   border-radius: 4px;
   box-sizing: border-box;
   color: ${(props) => props.color};
@@ -105,7 +104,7 @@ const ElButton = styled.button`
   ${(props) => (props.bold ? `font-weight: 600;` : "")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   cursor: pointer;
-  overflow:visible;
+  overflow: visible;
 `;
 
 const FloatButton = styled.button`

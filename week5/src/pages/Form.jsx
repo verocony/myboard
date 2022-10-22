@@ -48,20 +48,19 @@ const Form = () => {
       >
         홈 버튼
       </button> */}
-               <Button
-          _onClick={()=> {
-            navigate("/")}}
-          margin="0 0 10px"
-          width="45px"
-          height="45px"
-          bg="#fbfbfb"
-          color="#ff6f61"
-          border="1px solid #e7e7e7"
-        >
-          Home
-        </Button>
-
-
+      <Button
+        _onClick={() => {
+          navigate("/");
+        }}
+        margin="0 0 10px"
+        width="45px"
+        height="45px"
+        bg="#fbfbfb"
+        color="#ff6f61"
+        border="1px solid #e7e7e7"
+      >
+        Home
+      </Button>
 
       <div>Form</div>
 
@@ -104,7 +103,7 @@ const Form = () => {
         <button className="add-button" onClick={onSubmitHandler}>
           Reset
         </button> */}
-         <Button
+        <Button
           _onClick={onSubmitHandler}
           margin="0 0 10px"
           width="100px"
@@ -136,18 +135,19 @@ const Form = () => {
       >
         리스트 페이지로
       </button> */}
-       <Button
-          _onClick={()=> {
-            navigate("/List")}}
-          margin="0 0 10px"
-          width="100px"
-          height="45px"
-          bg="#fbfbfb"
-          color="#ff6f61"
-          border="1px solid #e7e7e7"
-        >
-          리스트 보기
-        </Button>
+      <Button
+        _onClick={() => {
+          navigate("/List");
+        }}
+        margin="0 0 10px"
+        width="100px"
+        height="45px"
+        bg="#fbfbfb"
+        color="#ff6f61"
+        border="1px solid #e7e7e7"
+      >
+        리스트 보기
+      </Button>
     </div>
   );
 };
