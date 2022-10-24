@@ -78,18 +78,19 @@ const Detail = () => {
       >
         홈 버튼
       </button> */}
-       <Button
-          _onClick={()=> {
-            navigate("/")}}
-          margin="0 0 10px"
-          width="45px"
-          height="45px"
-          bg="#fbfbfb"
-          color="#ff6f61"
-          border="1px solid #e7e7e7"
-        >
-          Home
-        </Button>
+      <Button
+        _onClick={() => {
+          navigate("/");
+        }}
+        margin="0 0 10px"
+        width="45px"
+        height="45px"
+        bg="#fbfbfb"
+        color="#ff6f61"
+        border="1px solid #e7e7e7"
+      >
+        Home
+      </Button>
       <div>PracDetail</div>
       <div className="list-container">
         <h2>작성자 : {postUser[indexId].writer}</h2>
@@ -108,15 +109,15 @@ const Detail = () => {
         수정하기
       </button> */}
       <Button
-          width="100px"
-          height="45px"
-          bold="false"
-          _onClick={() => {
-            navigate(`/Update/${paramID.id}`);
-          }}
-        >
-          수정하기
-        </Button>
+        width="100px"
+        height="45px"
+        bold="false"
+        _onClick={() => {
+          navigate(`/Update/${paramID.id}`);
+        }}
+      >
+        수정하기
+      </Button>
       {/* <button
         onClick={() => {
           navigate("/List");
@@ -125,15 +126,15 @@ const Detail = () => {
         리스트 페이지로
       </button> */}
       <Button
-          width="100px"
-          height="45px"
-          bold="false"
-          _onClick={()=> {
-            navigate("/List");
-           }}
-        >
-          리스트 보기
-        </Button>
+        width="100px"
+        height="45px"
+        bold="false"
+        _onClick={() => {
+          navigate("/List");
+        }}
+      >
+        리스트 보기
+      </Button>
       <div>Comment</div>
       <div className="add-form">
         <div className="input-group">
@@ -185,7 +186,6 @@ const Detail = () => {
         >
           Reset
         </Button>
-        
       </div>
 
       <div className="list-wrapper">

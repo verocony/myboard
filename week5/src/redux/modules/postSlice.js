@@ -37,7 +37,7 @@ export const __getComments = createAsyncThunk(
 );
 
 export const __addPost = createAsyncThunk(
-  "addPost",
+  "post/addPost",
   async (payload, thunkAPI) => {
     try {
       await axios.post(`${process.env.REACT_APP_JSON_SERVER}/post`, payload);
@@ -49,7 +49,7 @@ export const __addPost = createAsyncThunk(
 );
 
 export const __addComment = createAsyncThunk(
-  "addComment",
+  "post/addComment",
   async (payload, thunkAPI) => {
     try {
       await axios.post(`${process.env.REACT_APP_JSON_SERVER}/comment`, payload);
